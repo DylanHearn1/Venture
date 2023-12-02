@@ -7,20 +7,21 @@
     background-color: white;
 }
 
-.burger {
-    height: 40vh;
+@mixin nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     font-family: App.$font;
-    background-color: App.$primary;
+    margin: 0 auto;
+    padding: 1% 4%;
+    max-width: App.$desktop;
 
     .logo, .logomobile {
-        display: none;
+        display: block;
     }
 
     ul {
-        display: block;
-        text-align: center;
+        display: flex;
     }
 
     li {
@@ -32,7 +33,7 @@
             text-transform: uppercase;
             font-weight: App.$heading-weight;
             color: App.$secondary;
-            font-size: 3em;
+            font-size: App.$nav-size;
             opacity: .8;
             padding: 4px 9px;
 
@@ -47,61 +48,13 @@
             background-color: App.$primary;
             color: rgb(255, 255, 255);
             border-radius: 20px;
-        }
-    }
 
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: App.$font;
-    margin: 0 auto;
-    padding: 1% 4%;
-    max-width: App.$desktop;
-
-    &:active {
-        background-color: pink;
-        height: 40vh;
-        display: flex;
-        justify-content: space-around;
-        font-family: App.$font;
-        background-color: App.$primary;
-    
-        .logo, .logomobile {
-            display: none;
-        }
-    
-        ul {
-            display: block;
-            text-align: center;
-        }
-    
-        li {
-            list-style: none;
-            margin: 0px 7px;
-    
-            a {
-                text-decoration: none;
-                text-transform: uppercase;
-                font-weight: App.$heading-weight;
+            &:hover {
+                box-shadow: 0px 0px 5px 5px App.$primary;
+                background-color: white;
+                transition: ease-in-out .2s;
                 color: App.$secondary;
-                font-size: 3em;
-                opacity: .8;
-                padding: 4px 9px;
-    
-                &:hover {
-                    text-decoration: underline 3px;
-                    text-underline-offset: 5px;
-                    opacity: .5;
-                    transition: ease-in-out .2s;
-                }
-            }
-            .special {
-                background-color: App.$primary;
-                color: rgb(255, 255, 255);
-                border-radius: 20px;
+                text-decoration: none;
             }
         }
     
@@ -109,58 +62,37 @@
 
     .logo {
         width: 50px;
-
-        &:hover {
-            scale: 1.2;
-            transition: ease-in .2s;
-            opacity: .4;
-        }
-
-        &:not(:hover) {
-            transition: ease-in-out;
-        }
     }
 
     .logomobile {
         display: none;
     }
+}
+
+.nav {
+    @include nav
+}
+
+.burger {
+    @include nav;
+    background-color: App.$primary;
+    height: 100vh;
+    align-items: start;
+    padding: 3.8% 7%;
+
+    .logo {
+        display: none;
+    }
 
     ul {
         display: flex;
+        flex-direction: column;
+        text-align: start;
 
         li {
-            list-style: none;
-            margin: 0px 7px;
-    
-            a {
-                text-decoration: none;
-                text-transform: uppercase;
-                font-weight: App.$heading-weight;
-                color: App.$secondary;
-                font-size: App.$nav-size;
-                opacity: .8;
-                padding: 4px 9px;
-
-                &:hover {
-                    text-decoration: underline 3px;
-                    text-underline-offset: 5px;
-                    opacity: .5;
-                    transition: ease-in-out .2s;
-                }
-            }
-            .special {
-                background-color: App.$primary;
-                color: rgb(255, 255, 255);
-                border-radius: 20px;
-
-                &:hover {
-                    box-shadow: 0px 0px 5px 5px App.$primary;
-                    background-color: white;
-                    transition: ease-in-out .2s;
-                    color: App.$secondary;
-                    text-decoration: none;
-                }
-            }
+            font-size: 2em;
+            margin: 0;
+            padding: 0;
         }
     }
 }

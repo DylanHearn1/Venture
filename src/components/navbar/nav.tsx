@@ -12,26 +12,36 @@ const Navbar = () => {
   return (
     <>
       <nav className={styles.container}>
-        <div className={!enabled ? styles.nav : styles.active}>
-          <img src="logoNew.png" alt="logo" className={styles.logo} />
+        <div className={enabled ? styles.burger : styles.nav}>
+          <img src="green.svg" alt="logo" className={styles.logo} />
           <img src="logoNew (1).png" alt="logo" className={styles.logomobile} />
           <ul className="list">
             <li>
-              <a href="#home">home</a>
+              <a href="#home" onClick={() => setEnabled(false)}>
+                home
+              </a>
             </li>
             <li>
-              <a href="#about">about</a>
+              <a href="#about" onClick={() => setEnabled(false)}>
+                about
+              </a>
             </li>
             <li>
-              <a href="#contact">contact</a>
+              <a href="#contact" onClick={() => setEnabled(false)}>
+                contact
+              </a>
             </li>
             <li>
-              <a href="discover" className={styles.special}>
+              <a
+                href="#discover"
+                className={styles.special}
+                onClick={() => setEnabled(false)}
+              >
                 discover
               </a>
             </li>
           </ul>
-          <BurgerMenu click={handleClick} />
+          <BurgerMenu click={handleClick} active={enabled} />
         </div>
       </nav>
     </>

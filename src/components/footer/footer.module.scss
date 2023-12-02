@@ -28,7 +28,6 @@
 .list {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     height: 130px;
     
@@ -36,6 +35,7 @@
         text-decoration: none;
         color: white;
         font-weight: App.$heading-weight;
+        margin: 2px 0;
 
         &:hover {
             color: App.$secondary;

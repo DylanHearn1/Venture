@@ -20,6 +20,11 @@ $font: 'Poppins', sans-serif;
 
 $nav-size: 1.2em;
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5em;
+}
+
 * {
     box-sizing: border-box;
     margin: 0px;

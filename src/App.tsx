@@ -10,13 +10,13 @@ function App() {
     <>
       <Navbar />
       <main>
-        <section>
+        <section id="home">
           <HomePage />
         </section>
-        <section>
+        <section id="about">
           <AboutUs />
         </section>
-        <section>
+        <section id="discover">
           <Discover />
         </section>
       </main>
