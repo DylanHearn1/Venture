@@ -1,0 +1,40 @@
+$tablet: 768px;
+$desktop: 1280px;
+
+$heading-weight: 900;
+$title: 6em;
+$title-tablet: 4em;
+
+$heading-size: 4em;
+$heading-tablet: 3em;
+
+$p-tablet: 1.5em;
+$p-size: 2em;
+$p-weight: 500;
+
+$primary: #50C878;
+$secondary: rgb(43, 139, 75);
+
+$font: 'Poppins', sans-serif;
+
+
+$nav-size: 1.2em;
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: $font;
+}
+
+.content {
+    max-width: $desktop;
+    margin: 0 auto;
+}
+
+@media (max-width: $desktop) {
+    .content {
+        max-width: none;
+        margin: 0 0px;
+    }
+}

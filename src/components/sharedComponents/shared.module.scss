@@ -1,0 +1,94 @@
+@use '../../App.scss';
+
+.background {
+    background-color: App.$primary;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container {
+    align-items: center;
+    text-align: center;
+    max-width: App.$desktop;
+    margin: 0 auto;
+}
+
+.container100 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    max-width: App.$desktop;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: App.$title;
+    font-weight: App.$heading-weight;
+    margin-bottom: 4%;
+    text-decoration: underline 5px App.$primary;
+    text-underline-offset: 20px;
+}
+
+@mixin heading {
+    font-size: App.$heading-size;
+    font-weight: App.$heading-weight;
+    padding: 0 5%;
+    margin-bottom: 4%;
+}
+
+.heading {
+    @include heading()
+}
+
+.headingwhite {
+    @include heading();
+    color: white;
+}
+
+@mixin paragraph {
+    font-size: App.$p-size;
+    font-weight: App.$p-weight;
+    opacity: .7;
+    padding: 0 5%;
+}
+
+.paragraph {
+    @include paragraph()
+}
+
+.paragraphwhite {
+    @include paragraph();
+    color: white
+}
+
+.backgroundprimary {
+    background-color: #50C878;
+}
+
+@media (max-width: App.$tablet) {
+    .title {
+        font-size: App.$title-tablet;
+    }
+
+    .heading {
+        font-size: App.$heading-tablet;
+        font-weight: App.$heading-weight;
+    }
+
+    .headingwhite {
+        @include heading();
+        color: white;
+        font-size: App.$heading-tablet;
+    }
+
+    .paragraphwhite {
+        @include paragraph();
+        color: white;
+        font-size: App.$p-tablet;
+    }
+
+    .paragraph {
+        font-size: App.$p-tablet;
+    }
+}

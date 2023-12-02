@@ -1,0 +1,68 @@
+@use '../../App.scss';
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 200px;
+    margin: 0 auto;
+    max-width: App.$desktop;
+    padding: 0 5%;
+}
+
+.heading {
+    color: white;
+}
+
+.location {
+    color: white;
+    margin: 5% 0;
+}
+
+.email {
+    color: white;
+    text-decoration: underline 2px;
+    text-underline-offset: 3px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 130px;
+    
+    a {
+        text-decoration: none;
+        color: white;
+        font-weight: App.$heading-weight;
+
+        &:hover {
+            color: App.$secondary;
+            text-decoration: underline 3px;
+            transition: .2s ease;
+        }
+    }
+}
+
+.socialimage {
+    width: 50px;
+    color: white;
+}
+
+.logos {
+    display: flex;
+}
+
+@media (max-width: 500px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .list {
+        margin: 25px 0;
+    }
+    .location {
+        text-align: center;
+    }
+}

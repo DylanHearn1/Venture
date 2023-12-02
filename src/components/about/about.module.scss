@@ -1,0 +1,9 @@
+@use '../../App.scss';
+
+.container {
+    text-align: center;
+    max-width: App.$desktop;
+    margin: 0 auto;
+    padding: 5% 0;
+    margin-bottom: 10%;
+}
