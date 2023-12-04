@@ -12,7 +12,7 @@
     width: 350px;
     min-height: 400px;
     border-radius: 10px;
-    border: 2px solid rgba(0, 0, 0, 0.178);
+    border: 2px solid App.$third;
     overflow: hidden;
     &:hover {
         .image {
@@ -46,4 +46,22 @@
     display: flex;
     justify-content: start;
     text-align: start;
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .tags {
+        background-color: App.$third;
+        padding: 2% 3%;
+        border-radius: 25px;
+        opacity: .6;
+        margin: 1%;
+    }
+}
+
+select {
+    margin-bottom: 20px;
 }
