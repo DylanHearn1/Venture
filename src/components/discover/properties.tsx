@@ -46,9 +46,9 @@ const Properties = () => {
           onChange={(e) => setFilter(e.target.value)}
         >
           <option value="">All</option>
-          <option value="garage">Garage</option>
-          <option value="test">Test</option>
-          <option value="bungalow">Bungalow</option>
+          <option value="sold">Sold</option>
+          <option value="listed">Listed</option>
+          <option value="to let">To let</option>
         </select>
       </label>
       {filteredData.length > 0 ? (
@@ -67,7 +67,7 @@ const Properties = () => {
                   <div className={styles.info}>
                     {item.tags.map((item, ind) => (
                       <p className={styles.tags} key={ind}>
-                        {item}
+                        {item.toUpperCase()}
                       </p>
                     ))}
                   </div>
@@ -80,11 +80,13 @@ const Properties = () => {
       ) : (
         <>
           {data.length ? (
-            <p>
-              No properties found with the <strong>{filter}</strong> tag
+            <p className={shared.paragraph}>
+              No properties found with the <strong>{filter}</strong> tag.
             </p>
           ) : (
-            <p>No properties avaliable right now</p>
+            <p className={shared.paragraph}>
+              No properties avaliable right now.
+            </p>
           )}
         </>
       )}

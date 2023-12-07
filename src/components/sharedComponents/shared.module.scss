@@ -33,8 +33,7 @@
 @mixin heading {
     font-size: App.$heading-size;
     font-weight: App.$heading-weight;
-    padding: 0 5%;
-    margin-bottom: 4%;
+    padding: 2% 0;
 }
 
 .heading {
@@ -51,6 +50,7 @@
     font-weight: App.$p-weight;
     opacity: .7;
     padding: 0 5%;
+    padding: 2% 0;
 }
 
 .paragraph {

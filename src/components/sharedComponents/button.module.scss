@@ -4,8 +4,10 @@ button {
     background-color: App.$primary;
     border: none;
     color: white;
-    border-radius: 25px;
+    border-radius: 15px;
     padding: 2% 3%;
+    cursor: pointer;
+    
     &:hover {
         background-color: App.$secondary;
         color: white;

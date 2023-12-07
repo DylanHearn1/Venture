@@ -38,6 +38,10 @@ html {
     margin: 0 auto;
 }
 
+#contact, #about, #discover {
+    margin-bottom: 10%;
+}
+
 @media (max-width: $desktop) {
     .content {
         max-width: none;

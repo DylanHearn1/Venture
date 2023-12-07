@@ -6,9 +6,8 @@ const HomePage = () => {
       <div className={shared.text}>
         <h1 className={shared.title}>Venture Vision</h1>
         <p className={shared.paragraph}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non minima
-          sed magnam porro quis aliquid nobis. Totam iure doloribus amet
-          excepturi ex sequi eos, laudantium at architecto sed adipisci impedit.
+          Explore our innovative platform revolutionizing property sales with
+          immersive virtual tours for estate agencies.
         </p>
       </div>
     </div>
