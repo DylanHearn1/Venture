@@ -21,7 +21,7 @@ const Properties = () => {
 
   async function getData() {
     try {
-      const responce = await fetch('http://localhost:3000');
+      const responce = await fetch('https://vserver-63as.onrender.com');
       const properties = await responce.json();
       setData(properties);
       console.log(properties);
