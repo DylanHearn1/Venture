@@ -1,4 +1,5 @@
 import shared from '../sharedComponents/shared.module.scss';
+import './contact.module.scss';
 
 const Contact = () => {
   return (
@@ -9,6 +10,25 @@ const Contact = () => {
           Get in touch with our team to learn more about our services and how we
           can elevate your property sales.
         </p>
+        <form action="">
+          <label htmlFor="">Your email</label>
+          <input
+            type="email"
+            name=""
+            id=""
+            placeholder="example@gmail.com"
+            required
+          />
+          <label htmlFor="">Your message</label>
+          <textarea
+            id="message"
+            cols={70}
+            maxLength={500}
+            rows={10}
+            placeholder="Your message"
+          ></textarea>
+          <input type="submit" name="" />
+        </form>
       </div>
     </div>
   );

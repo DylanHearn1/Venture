@@ -17,6 +17,7 @@
 .location {
     color: white;
     margin: 5% 0;
+    font-size: App.$p-small;
 }
 
 .email {
@@ -30,6 +31,7 @@
     flex-direction: column;
     align-items: center;
     height: 130px;
+    font-size: App.$p-small;
     
     a {
         text-decoration: none;
@@ -48,6 +50,7 @@
 .socialimage {
     width: 50px;
     color: white;
+    font-size: App.$p-small;
 }
 
 .logos {
