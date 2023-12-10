@@ -5,8 +5,9 @@ button {
     border: none;
     color: white;
     border-radius: 15px;
-    padding: 2% 3%;
+    padding: 1% 3%;
     cursor: pointer;
+    font-size: App.$p-small;
     
     &:hover {
         background-color: App.$secondary;

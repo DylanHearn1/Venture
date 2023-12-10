@@ -1,0 +1,62 @@
+@use '../../App.scss';
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+textarea {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: solid white 3px;
+    font-size: App.$p-small;
+    color: white;
+    &::placeholder {
+        color: white;
+    }
+
+    &:focus::placeholder {
+        color: transparent;
+    }
+}
+
+input {
+    border: none;
+    background-color: transparent;
+    color: white;
+    border-bottom: solid white 3px;
+    height: 50px;
+    font-size: App.$p-small;
+    outline: none;
+
+    &::placeholder {
+        color: white;
+    }
+
+    &:focus::placeholder {
+        transform: translateX(90%);
+        transition: ease .2s;
+    }
+
+    // &:focus::placeholder {
+    //     color: transparent;
+    // }
+}
+
+.submit {
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .contact {
+        display: block;
+    }
+}
