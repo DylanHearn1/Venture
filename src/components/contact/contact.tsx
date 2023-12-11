@@ -9,10 +9,11 @@ const Contact = () => {
         <div className="contact">
           <p className={shared.paragraphwhite}>
             Get in touch with our team to learn more about our services and how
-            we can elevate your property sales.
+            we can elevate your property sales. <br /> <br />
+            Optinally call us on +44 0483 849304 during normal business hours.
           </p>
           <form action="">
-            <input type="text" name="" id="" placeholder="name" />
+            <input type="text" name="" id="name" placeholder="name" />
             <input type="email" name="" id="" placeholder="email" />
             <textarea
               name=""

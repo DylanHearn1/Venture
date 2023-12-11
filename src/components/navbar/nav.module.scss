@@ -3,7 +3,8 @@
 .container {
     position: fixed;
     width: 100%;
-    z-index: 1;
+    // z index is high since 360 image nav has high index
+    z-index: 99; 
     background-color: white;
 }
 

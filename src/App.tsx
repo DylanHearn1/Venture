@@ -5,6 +5,7 @@ import AboutUs from './components/about/about';
 import Discover from './components/discover/discover';
 import Footer from './components/footer/footer';
 import Contact from './components/contact/contact';
+import ToTop from './components/toTop/top';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <section id="contact">
           <Contact />
         </section>
+        <ToTop />
       </main>
       <footer>
         <Footer />

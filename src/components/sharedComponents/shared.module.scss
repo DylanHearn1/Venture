@@ -66,6 +66,23 @@
     background-color: #50C878;
 }
 
+.top {
+
+    max-width: 250px;
+    margin: 0 auto;
+
+    a {
+        text-decoration: none;
+        color: #50C878;
+        font-size: App.$p-size;
+    }
+
+    &:hover {
+        transition: .2s ease;
+        transform: translateY(-20px);
+    }
+}
+
 @media (max-width: App.$tablet) {
     .title {
         font-size: App.$title-tablet;

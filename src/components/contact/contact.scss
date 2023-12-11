@@ -4,12 +4,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10%;
+    align-items: center;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
 }
 
 textarea {
@@ -19,13 +19,12 @@ textarea {
     border-bottom: solid white 3px;
     font-size: App.$p-small;
     color: white;
+    margin-bottom: 10px;
     &::placeholder {
         color: white;
+        opacity: .7;
     }
 
-    &:focus::placeholder {
-        color: transparent;
-    }
 }
 
 input {
@@ -33,16 +32,19 @@ input {
     background-color: transparent;
     color: white;
     border-bottom: solid white 3px;
-    height: 50px;
+    height: 70px;
     font-size: App.$p-small;
     outline: none;
+    margin-bottom: 10px;
+
 
     &::placeholder {
         color: white;
+        opacity: .7;
     }
 
     &:focus::placeholder {
-        transform: translateX(90%);
+        transform: translatey(-20px);
         transition: ease .2s;
     }
 
@@ -53,10 +55,21 @@ input {
 
 .submit {
     border: none;
+    background-color: white;
+    color: App.$primary;
+    max-width: 35%;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0;
 }
 
 @media (max-width: 768px) {
     .contact {
         display: block;
+    }
+
+    form {
+        margin: 0 auto;
+        max-width: 90%;
     }
 }
