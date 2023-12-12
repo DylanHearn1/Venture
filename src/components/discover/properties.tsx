@@ -14,6 +14,7 @@ interface Property {
 const Properties = () => {
   const [data, setData] = useState<Property[]>([]);
   const [filter, setFilter] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getData();
@@ -21,10 +22,12 @@ const Properties = () => {
 
   async function getData() {
     try {
+      setLoading(true);
       const responce = await fetch('https://vserver-63as.onrender.com');
       const properties = await responce.json();
       setData(properties);
       console.log(properties);
+      setLoading(false);
     } catch {
       console.log('error on the server');
     }
@@ -38,57 +41,63 @@ const Properties = () => {
 
   return (
     <div className={shared.container}>
-      <label htmlFor="filter">
-        <select
-          name="options"
-          id="filter"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-        >
-          <option value="">All</option>
-          <option value="sold">Sold</option>
-          <option value="listed">Listed</option>
-          <option value="to let">To let</option>
-        </select>
-      </label>
-      {filteredData.length > 0 ? (
-        <>
-          <div className={styles.container}>
-            {filteredData.map((item) => (
-              <div key={item.id} className={styles.card}>
-                <img
-                  src={item.image}
-                  alt="picture of property"
-                  className={styles.image}
-                />
-                <div className={styles.content}>
-                  <h1 className={styles.heading}>{item.title}</h1>
-                  <p className={styles.desc}>{item.desc}</p>
-                  <div className={styles.info}>
-                    {item.tags.map((item, ind) => (
-                      <p className={styles.tags} key={ind}>
-                        {item.toUpperCase()}
-                      </p>
-                    ))}
-                  </div>
-                  <Button text="Show me" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </>
+      {loading ? (
+        <img src="./loading.gif" alt="loading" className={styles.loading} />
       ) : (
-        <>
-          {data.length ? (
-            <p className={shared.paragraph}>
-              No properties found with the <strong>{filter}</strong> tag.
-            </p>
+        <div>
+          <label htmlFor="filter">
+            <select
+              name="options"
+              id="filter"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+            >
+              <option value="">All</option>
+              <option value="sold">Sold</option>
+              <option value="listed">Listed</option>
+              <option value="to let">To let</option>
+            </select>
+          </label>
+          {filteredData.length > 0 ? (
+            <>
+              <div className={styles.container}>
+                {filteredData.map((item) => (
+                  <div key={item.id} className={styles.card}>
+                    <img
+                      src={item.image}
+                      alt="picture of property"
+                      className={styles.image}
+                    />
+                    <div className={styles.content}>
+                      <h1 className={styles.heading}>{item.title}</h1>
+                      <p className={styles.desc}>{item.desc}</p>
+                      <div className={styles.info}>
+                        {item.tags.map((item, ind) => (
+                          <p className={styles.tags} key={ind}>
+                            {item.toUpperCase()}
+                          </p>
+                        ))}
+                      </div>
+                      <Button text="Show me" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
           ) : (
-            <p className={shared.paragraph}>
-              No properties avaliable right now.
-            </p>
+            <>
+              {data.length ? (
+                <p className={shared.paragraph}>
+                  No properties found with the <strong>{filter}</strong> tag.
+                </p>
+              ) : (
+                <p className={shared.paragraph}>
+                  No properties avaliable right now.
+                </p>
+              )}
+            </>
           )}
-        </>
+        </div>
       )}
     </div>
   );

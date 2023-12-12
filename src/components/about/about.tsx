@@ -19,6 +19,7 @@ const AboutUs = () => {
               src="./tryit360.jpg"
               height="50vh"
               width="60vw"
+              keyboard="always"
             />
           </div>
         </div>
