@@ -1,4 +1,4 @@
-$tablet: 768px;
+$tablet: 990px;
 $desktop: 1280px;
 
 $heading-weight: 900;
@@ -45,6 +45,11 @@ html {
 }
 
 @media (max-width: $desktop) {
+
+    html {
+        scroll-padding-top: 3em;
+    }
+
     .content {
         max-width: none;
         margin: 0 0px;

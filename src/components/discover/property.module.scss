@@ -9,7 +9,7 @@
 
 .card {
     width: 350px;
-    min-height: 400px;
+    min-height: 450px;
     border-radius: 10px;
     border: 2px solid App.$third;
     overflow: hidden;
@@ -59,6 +59,15 @@
         opacity: .6;
         margin: 1%;
     }
+}
+
+a {
+    text-decoration: none;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
 }
 
 select {

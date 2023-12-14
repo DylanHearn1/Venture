@@ -5,7 +5,7 @@ import Button from '../sharedComponents/Button';
 
 interface Property {
   title: string;
-  id: number;
+  id: string;
   desc: string;
   image: string;
   tags: Array<string>;
@@ -26,10 +26,10 @@ const Properties = () => {
       const responce = await fetch('https://vserver-63as.onrender.com');
       const properties = await responce.json();
       setData(properties);
-      console.log(properties);
       setLoading(false);
-    } catch {
-      console.log('error on the server');
+    } catch (error) {
+      console.log('error on the server', error);
+      setLoading(false);
     }
   }
 
@@ -78,7 +78,9 @@ const Properties = () => {
                           </p>
                         ))}
                       </div>
-                      <Button text="Show me" />
+                      <a href={item.id} className={styles.button}>
+                        <Button text="Show me" />
+                      </a>
                     </div>
                   </div>
                 ))}

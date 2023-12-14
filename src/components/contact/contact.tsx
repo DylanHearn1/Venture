@@ -13,13 +13,14 @@ const Contact = () => {
             Optinally call us on +44 0483 849304 during normal business hours.
           </p>
           <form action="https://vserver-63as.onrender.com/message" id="contact">
-            <input type="text" id="name" placeholder="name" />
-            <input type="email" id="email" placeholder="email" />
+            <input type="text" id="name" placeholder="name" required />
+            <input type="email" id="email" placeholder="email" required />
             <textarea
               id="message"
               cols={30}
               rows={3}
               placeholder="message"
+              required
             ></textarea>
             <input type="submit" className="submit" />
           </form>
