@@ -1,4 +1,4 @@
-import shared from '../sharedComponents/shared.module.scss';
+import shared from '../../Components/sharedComponents/shared.module.scss';
 import styles from './about.module.scss';
 import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
 
@@ -20,6 +20,7 @@ const AboutUs = () => {
               height="50vh"
               width="60vw"
               keyboard="always"
+              loadingImg="lazy"
             />
           </div>
         </div>

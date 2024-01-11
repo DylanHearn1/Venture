@@ -1,11 +1,11 @@
 import './App.scss';
 import Navbar from './components/navbar/nav';
-import HomePage from './components/home/home';
-import AboutUs from './components/about/about';
-import Discover from './components/discover/discover';
-import Footer from './components/footer/footer';
-import Contact from './components/contact/contact';
+import HomePage from './pages/home/home';
+import Footer from './pages/footer/footer';
+import Contact from './pages/contact/contact';
 import ToTop from './components/toTop/top';
+import AboutUs from './pages/about/about';
+import Discover from './pages/discover/discover';
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import shared from '../sharedComponents/shared.module.scss';
+import shared from '../../Components/sharedComponents/shared.module.scss';
 
 const HomePage = () => {
   return (

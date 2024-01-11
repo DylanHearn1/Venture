@@ -1,7 +1,7 @@
 import styles from './property.module.scss';
 import { useEffect, useState } from 'react';
-import shared from '../sharedComponents/shared.module.scss';
-import Button from '../sharedComponents/Button';
+import shared from '../../Components/sharedComponents/shared.module.scss';
+import Button from '../../components/sharedComponents/Button';
 
 interface Property {
   title: string;
@@ -64,6 +64,7 @@ const Properties = () => {
                 {filteredData.map((item) => (
                   <div key={item.id} className={styles.card}>
                     <img
+                      loading="lazy"
                       src={item.image}
                       alt="picture of property"
                       className={styles.image}
