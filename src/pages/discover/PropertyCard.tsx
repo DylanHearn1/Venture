@@ -26,7 +26,7 @@ const PropertyCard = ({
           <Skeleton variant="rounded" width={350} height={450} />
         </div>
       ) : (
-        <div className={styles.card}>
+        <>
           <img
             loading="lazy"
             src={image}
@@ -47,7 +47,7 @@ const PropertyCard = ({
               <Button text="Show me" />
             </a>
           </div>
-        </div>
+        </>
       )}
     </>
   );

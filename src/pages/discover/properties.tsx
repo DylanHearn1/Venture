@@ -59,14 +59,16 @@ const Properties = () => {
           <>
             <div className={styles.container}>
               {filteredData.map((item) => (
-                <PropertyCard
-                  id={item.id}
-                  title={item.title}
-                  image={item.image}
-                  desc={item.desc}
-                  tags={item.tags}
-                  isLoading={loading}
-                />
+                <div className={styles.card} key={item.id}>
+                  <PropertyCard
+                    id={item.id}
+                    title={item.title}
+                    image={item.image}
+                    desc={item.desc}
+                    tags={item.tags}
+                    isLoading={loading}
+                  />
+                </div>
               ))}
             </div>
           </>
