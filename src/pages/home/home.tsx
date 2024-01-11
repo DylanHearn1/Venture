@@ -7,7 +7,7 @@ const HomePage = () => {
         <h1 className={shared.title}>Venture Vision</h1>
         <p className={shared.paragraph}>
           Explore our innovative platform revolutionizing property sales with
-          immersive virtual tours for estate agencies.
+          immersive virtual tours for estate agencies
         </p>
       </div>
     </div>
