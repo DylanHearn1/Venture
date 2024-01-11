@@ -1,6 +1,6 @@
 import styles from './property.module.scss';
 import { useEffect, useState } from 'react';
-import shared from './../../components/sharedComponents/shared.module.scss';
+import shared from './../../Components/sharedComponents/shared.module.scss';
 import PropertyCard from './PropertyCard';
 
 interface Property {

@@ -1,5 +1,5 @@
 import Properties from './properties';
-import shared from './../../components/sharedComponents/shared.module.scss';
+import shared from './../../Components/sharedComponents/shared.module.scss';
 
 const Discover = () => {
   return (
