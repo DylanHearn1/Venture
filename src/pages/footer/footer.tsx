@@ -1,4 +1,4 @@
-import shared from '../../Components/sharedComponents/shared.module.scss';
+import shared from './../../components/sharedComponents/shared.module.scss';
 import styles from './footer.module.scss';
 
 const Footer = () => {
