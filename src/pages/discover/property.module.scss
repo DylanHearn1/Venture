@@ -90,7 +90,17 @@ option {
     width: 70px;
 }
 
-.skeleton {
-    border-radius: 20px;
-    overflow: hidden;
+.propertyCardSkeletonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.skeletonCard {
+    height: 450px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

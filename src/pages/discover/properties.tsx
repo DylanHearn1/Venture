@@ -2,6 +2,7 @@ import styles from './property.module.scss';
 import { useEffect, useState } from 'react';
 import shared from './../../components/sharedComponents/shared.module.scss';
 import PropertyCard from './PropertyCard';
+import { Skeleton } from '@mui/material';
 
 interface Property {
   title: string;
@@ -13,17 +14,19 @@ interface Property {
 
 const Properties = () => {
   const [data, setData] = useState<Property[]>([]);
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getData();
-  }, []);
+    getData(filter);
+  }, [filter]);
 
-  async function getData() {
+  const ApiUrl = import.meta.env.VITE_PROPERTY_DATA;
+
+  async function getData(filter: string) {
     try {
       setLoading(true);
-      const responce = await fetch('https://vserver-63as.onrender.com');
+      const responce = await fetch(`${ApiUrl}/${filter}`);
       const properties = await responce.json();
       setData(properties);
       setLoading(false);
@@ -35,10 +38,6 @@ const Properties = () => {
 
   // filter results
 
-  const filteredData = filter
-    ? data.filter((item) => item.tags.includes(filter))
-    : data;
-
   return (
     <div className={shared.container}>
       <div>
@@ -49,16 +48,16 @@ const Properties = () => {
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
           >
-            <option value="">All</option>
+            <option value="all">All</option>
             <option value="sold">Sold</option>
             <option value="listed">Listed</option>
             <option value="to let">To let</option>
           </select>
         </label>
-        {filteredData.length > 0 ? (
+        {!loading && data.length ? (
           <>
             <div className={styles.container}>
-              {filteredData.map((item) => (
+              {data.map((item) => (
                 <div className={styles.card} key={item.id}>
                   <PropertyCard
                     id={item.id}
@@ -66,7 +65,6 @@ const Properties = () => {
                     image={item.image}
                     desc={item.desc}
                     tags={item.tags}
-                    isLoading={loading}
                   />
                 </div>
               ))}
@@ -74,14 +72,23 @@ const Properties = () => {
           </>
         ) : (
           <>
-            {data.length ? (
-              <p className={shared.paragraph}>
-                No properties found with the <strong>{filter}</strong> tag.
-              </p>
+            {loading && !data.length ? (
+              <div className={styles.propertyCardSkeletonContainer}>
+                {Array.from({ length: Math.ceil(Math.random() * 10) }).map(
+                  (_, index) => (
+                    <div key={index} className={styles.skeletonCard}>
+                      <Skeleton
+                        variant="rounded"
+                        width={'100%'}
+                        height={'90%'}
+                      />
+                      <Skeleton variant="text" width={'100%'} height={'30%'} />
+                    </div>
+                  )
+                )}
+              </div>
             ) : (
-              <p className={shared.paragraph}>
-                No properties avaliable right now.
-              </p>
+              <h1>No properties avaliable right now</h1>
             )}
           </>
         )}
