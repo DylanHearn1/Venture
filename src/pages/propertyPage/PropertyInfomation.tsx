@@ -22,7 +22,7 @@ const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
       .then((res) => res.json())
       .then((data) => setProperty(data))
       .catch((error) => console.log(error));
-  }, [id]);
+  }, []);
 
   return (
     <>
