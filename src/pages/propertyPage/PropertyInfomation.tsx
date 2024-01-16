@@ -18,11 +18,11 @@ const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
   const ApiUrl = import.meta.env.VITE_PROPERTY_DATA;
 
   useEffect(() => {
-    fetch(`${ApiUrl}/${id}`)
+    fetch(`${ApiUrl}/property/${id}`)
       .then((res) => res.json())
       .then((data) => setProperty(data))
       .catch((error) => console.log(error));
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -30,7 +30,7 @@ const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
         <Link to={homePageLink} className={styles.backButton}>
           Back
         </Link>
-        {property.length && (
+        {property.length > 0 ? (
           <>
             <div className={shared.container100}>
               {property.map((property, index) => (
@@ -81,6 +81,8 @@ const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
             ))}
             <Footer />
           </>
+        ) : (
+          <p>Coudn't find property data</p>
         )}
       </div>
     </>
