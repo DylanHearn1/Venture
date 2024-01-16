@@ -26,7 +26,8 @@ const Properties = () => {
   async function getData(filter: string) {
     try {
       setLoading(true);
-      const responce = await fetch(`${ApiUrl}/${filter}`);
+      const responce = await fetch(`http://localhost:3000/${filter}`);
+      // const responce = await fetch(`${ApiUrl}/${filter}`);
       const properties = await responce.json();
       setData(properties);
       setLoading(false);
@@ -74,7 +75,7 @@ const Properties = () => {
           <>
             {loading && !data.length ? (
               <div className={styles.propertyCardSkeletonContainer}>
-                {Array.from({ length: Math.ceil(Math.random() * 10) }).map(
+                {Array.from({ length: Math.ceil(Math.random() * 7) }).map(
                   (_, index) => (
                     <div key={index} className={styles.skeletonCard}>
                       <Skeleton

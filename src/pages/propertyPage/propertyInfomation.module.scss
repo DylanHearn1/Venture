@@ -1,0 +1,76 @@
+@use './../../App.scss';
+
+.image {
+    border-radius: 20px;
+    max-width: 600px;
+    height: auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.bio {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    padding: 0% 2%;
+}
+
+.backButton {
+    position: absolute;
+    padding: 10px 20px;
+    margin: 2% 3%;
+    background-color: App.$primary;
+    color: white;
+    border-radius: 15px;
+    font-size: App.$p-small;
+    &:hover {
+        background-color: App.$secondary;
+    }
+}
+
+.containerLeft {
+    display: flex;
+    margin: 2% 0;
+    align-items: center;
+}
+
+.containerRight {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 2% 0;
+    align-items: center;
+}
+
+.textContainerLeft {
+    text-align: start;
+    margin: 2% 0;
+    width: 50%;
+}
+
+.textContainerRight {
+    text-align: end;
+    margin: 2% 0;
+    width: 50%;
+}
+
+.imageContainer {
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    width: 700px;
+}
+
+@media (max-width: 990px) {
+    .bio {
+        display: block;
+    }
+
+    .image {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: App.$mobile) {
+    .image {
+        width: 100%;
+    }
+}

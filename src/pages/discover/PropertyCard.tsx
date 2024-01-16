@@ -1,12 +1,19 @@
 import Button from '../../components/sharedComponents/Button';
 import styles from './property.module.scss';
 
-interface PropertyCardProps {
+export interface Room {
+  room: string;
+  desc: string;
+  image: string;
+}
+
+export interface PropertyCardProps {
   id: string;
   image: string;
   title: string;
   desc: string;
   tags: Array<string>;
+  rooms?: Array<Room>;
 }
 
 const PropertyCard = ({ id, image, title, desc, tags }: PropertyCardProps) => {
@@ -28,7 +35,7 @@ const PropertyCard = ({ id, image, title, desc, tags }: PropertyCardProps) => {
             </p>
           ))}
         </div>
-        <a href={id} className={styles.button}>
+        <a href={`/property/${id}`} target="_blank" className={styles.button}>
           <Button text="Show me" />
         </a>
       </div>

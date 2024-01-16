@@ -1,34 +1,23 @@
-import './App.scss';
-import Navbar from './components/navbar/nav';
-import HomePage from './pages/home/home';
-import Footer from './pages/footer/footer';
-import Contact from './pages/contact/contact';
-import ToTop from './components/toTop/top';
-import AboutUs from './pages/about/about';
-import Discover from './pages/discover/discover';
+import Index from './Index';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PropertyInfomation from './pages/propertyPage/PropertyInfomation';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <main>
-        <section id="home">
-          <HomePage />
-        </section>
-        <section id="about">
-          <AboutUs />
-        </section>
-        <section id="discover">
-          <Discover />
-        </section>
-        <section id="contact">
-          <Contact />
-        </section>
-        <ToTop />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route
+            path="/property/:id"
+            element={
+              <PropertyInfomation
+                homePageLink={`${import.meta.env.VITE_CLIENT}`}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
