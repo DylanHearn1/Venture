@@ -6,6 +6,7 @@ import styles from './propertyInfomation.module.scss';
 import { Link } from 'react-router-dom';
 import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
 import Footer from '../footer/footer';
+import { Skeleton } from '@mui/material';
 
 interface PropertyInfomationProps {
   homePageLink: string;
@@ -14,23 +15,43 @@ interface PropertyInfomationProps {
 const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
   const { id } = useParams();
   const [property, setProperty] = useState<PropertyCardProps[]>([]);
+  const [loading, setLoading] = useState('loading');
 
   const ApiUrl = import.meta.env.VITE_PROPERTY_DATA;
 
   useEffect(() => {
+    // =-------------------------------------------------PROPERTY
     fetch(`${ApiUrl}/property/${id}`)
       .then((res) => res.json())
       .then((data) => setProperty(data))
-      .catch((error) => console.log(error));
+      .then(() => setLoading('success'))
+      .catch((error) => {
+        console.log(error), setLoading('fail');
+      });
   }, [id]);
 
   return (
     <>
       <div>
-        <Link to={homePageLink} className={styles.backButton}>
+        <Link to={`${homePageLink}#discover`} className={styles.backButton}>
           Back
         </Link>
-        {property.length > 0 ? (
+
+        {loading === 'loading' ? (
+          <div className={shared.container100}>
+            <div className={styles.skeletonContainer}>
+              <div>
+                <Skeleton variant="text" width={'400px'} height={'100px'} />
+                <Skeleton variant="text" width={'400px'} height={'50px'} />
+                <Skeleton variant="text" width={'400px'} height={'50px'} />
+                <Skeleton variant="text" width={'400px'} height={'50px'} />
+              </div>
+              <div className={styles.imageSkeletonContainer}>
+                <Skeleton variant="rounded" width={'100%'} height={'100%'} />
+              </div>
+            </div>
+          </div>
+        ) : loading === 'success' ? (
           <>
             <div className={shared.container100}>
               {property.map((property, index) => (
@@ -82,7 +103,9 @@ const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
             <Footer />
           </>
         ) : (
-          <p>Coudn't find property data</p>
+          <div className={styles.errorContainer}>
+            <p className={shared.paragraph}>Coudn't find property data</p>
+          </div>
         )}
       </div>
     </>
