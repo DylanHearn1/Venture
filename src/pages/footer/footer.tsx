@@ -19,10 +19,10 @@ const Footer = () => {
           </p>
         </div>
         <ul className={styles.list}>
-          <a href="#home">home</a>
-          <a href="#about">about</a>
-          <a href="#contact">contact</a>
-          <a href="#discover">discover</a>
+          <a href="https://venture-delta.vercel.app/#home">home</a>
+          <a href="https://venture-delta.vercel.app/#about">about</a>
+          <a href="https://venture-delta.vercel.app/#contact">contact</a>
+          <a href="https://venture-delta.vercel.app/#discover">discover</a>
         </ul>
         <div className={styles.location}>
           <p>

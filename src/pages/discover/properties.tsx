@@ -88,7 +88,10 @@ const Properties = () => {
                 )}
               </div>
             ) : (
-              <h1>No properties avaliable right now</h1>
+              <p className={shared.paragraph}>
+                {`No properties with the `} <strong>{`${filter}`}</strong>
+                {` tag found.`}
+              </p>
             )}
           </>
         )}

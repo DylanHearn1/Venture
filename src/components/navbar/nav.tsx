@@ -20,7 +20,9 @@ const Navbar = () => {
     <>
       <nav className={navScroll ? styles.containerfixed : styles.container}>
         <div className={enabled ? styles.burger : styles.nav}>
-          <img src="green.svg" alt="logo" className={styles.logo} />
+          <a href="https://venture-delta.vercel.app/#home">
+            <img src="green.svg" alt="logo" className={styles.logo} />
+          </a>
           <img src="logoNew (1).png" alt="logo" className={styles.logomobile} />
           <ul className="list">
             <li>

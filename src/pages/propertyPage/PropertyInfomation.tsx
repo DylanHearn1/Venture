@@ -20,7 +20,6 @@ const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
   const ApiUrl = import.meta.env.VITE_PROPERTY_DATA;
 
   useEffect(() => {
-    // =-------------------------------------------------PROPERTY
     fetch(`${ApiUrl}/property/${id}`)
       .then((res) => res.json())
       .then((data) => setProperty(data))
@@ -81,9 +80,9 @@ const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
                   >
                     <div
                       className={
-                        index
-                          ? styles.textContainerRight
-                          : styles.textContainerLeft
+                        index % 2 === 0
+                          ? styles.textContainerLeft
+                          : styles.textContainerRight
                       }
                     >
                       <p className={shared.heading}>{room.room}</p>
