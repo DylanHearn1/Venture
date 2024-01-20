@@ -10,6 +10,7 @@
 form {
     display: flex;
     flex-direction: column;
+    margin: 0 0;
 }
 
 textarea {
@@ -57,6 +58,7 @@ input {
     border: none;
     background-color: white;
     color: App.$primary;
+    margin: 3% 0;
     max-width: 35%;
     height: 50px;
     border-radius: 10px;

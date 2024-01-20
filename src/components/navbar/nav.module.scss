@@ -91,7 +91,7 @@
 .burger {
     @include nav;
     background-color: App.$primary;
-    height: 100vh;
+    height: 100dvh;
     align-items: start;
     padding: 3.8% 7%;
 
