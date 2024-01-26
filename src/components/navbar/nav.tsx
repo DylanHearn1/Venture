@@ -26,7 +26,13 @@ const Navbar = () => {
           >
             <img src="green.svg" alt="logo" className={styles.logo} />
           </a>
-          <img src="logoNew (1).png" alt="logo" className={styles.logomobile} />
+          <a href="https://venture-delta.vercel.app/#home">
+            <img
+              src="logoNew (1).png"
+              alt="logo"
+              className={styles.logomobile}
+            />
+          </a>
           <ul className="list">
             <li>
               <a href="#home" onClick={() => setEnabled(false)}>

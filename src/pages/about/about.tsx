@@ -11,8 +11,8 @@ const AboutUs = () => {
           We are your go-to source for cutting-edge 360 imaging solutions.
           Specializing in both 3D renders and real in-person photography, we
           redefine property showcasing for estate agencies.
-        </p>
-        <p className={shared.paragraphwhite}>
+          <br />
+          <br />
           Our dynamic 360-degree images offer an immersive experience, allowing
           viewers to virtually explore every corner of a property with unmatched
           detail. With a commitment to innovation, we seamlessly blend advanced
