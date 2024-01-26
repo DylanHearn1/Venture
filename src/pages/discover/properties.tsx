@@ -25,14 +25,14 @@ const Properties = () => {
 
   async function getData(filter: string) {
     try {
-      setLoading(true);
+      setLoading((prev) => !prev);
       const responce = await fetch(`${ApiUrl}/${filter}`);
       const properties = await responce.json();
       setData(properties);
-      setLoading(false);
+      setLoading((prev) => !prev);
     } catch (error) {
       console.log('error on the server', error);
-      setLoading(false);
+      setLoading((prev) => !prev);
     }
   }
 
