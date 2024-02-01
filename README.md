@@ -22,9 +22,19 @@ export default {
     project: ['./tsconfig.json', './tsconfig.node.json'],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Venture Vison
+
+# Deployed site https://venture-delta.vercel.app/
+
+# Backend code
+
+Prototype app created using React, SCSS, ExpressJS.
+
+Utilizing a fusion of immersive 360° panoramic images, I have developed a sophisticated web application. Leveraging the power of ExpressJS for the server-side logic, the application dynamically serves property information. The seamless integration with React-router allows for a fluid user experience by assigning unique paths to each property. Through this architecture, users can effortlessly navigate through various properties, triggering the retrieval of additional data specific to the selected property.
