@@ -28,6 +28,12 @@ textarea {
 
 }
 
+.errormessage {
+    color: white;
+    display: flex;
+    justify-content: end;
+}
+
 input {
     border: none;
     background-color: transparent;
