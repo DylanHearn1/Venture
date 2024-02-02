@@ -2,7 +2,7 @@
 
 # Deployed site https://venture-delta.vercel.app/
 
-# Backend code
+# ExpressJS code https://github.com/DylanHearn1/vserver
 
 Prototype app created using React, SCSS, ExpressJS.
 
