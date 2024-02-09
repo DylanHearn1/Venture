@@ -36,8 +36,6 @@ const Properties = () => {
     }
   }
 
-  // filter results
-
   return (
     <div className={shared.container}>
       <div>
@@ -72,7 +70,7 @@ const Properties = () => {
           </>
         ) : (
           <>
-            {loading && !data.length ? (
+            {loading ? (
               <div className={styles.propertyCardSkeletonContainer}>
                 {Array.from({ length: Math.ceil(Math.random() * 7) }).map(
                   (_, index) => (
