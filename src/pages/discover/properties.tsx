@@ -7,8 +7,8 @@ import { Skeleton } from '@mui/material';
 interface Property {
   title: string;
   id: string;
-  desc: string;
-  image: string;
+  description: string;
+  image_url: string;
   tags: Array<string>;
 }
 
@@ -18,12 +18,12 @@ const Properties = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getData(filter);
+    getProperties();
   }, [filter]);
 
   const ApiUrl = import.meta.env.VITE_PROPERTY_DATA;
 
-  async function getData(filter: string) {
+  async function getProperties() {
     try {
       setLoading((prev) => !prev);
       const responce = await fetch(`${ApiUrl}/${filter}`);
@@ -31,7 +31,7 @@ const Properties = () => {
       setData(properties);
       setLoading((prev) => !prev);
     } catch (error) {
-      console.log('error on the server', error);
+      console.log('error backend', error);
       setLoading((prev) => !prev);
     }
   }
@@ -60,8 +60,8 @@ const Properties = () => {
                   <PropertyCard
                     id={item.id}
                     title={item.title}
-                    image={item.image}
-                    desc={item.desc}
+                    image={item.image_url}
+                    desc={item.description}
                     tags={item.tags}
                   />
                 </div>

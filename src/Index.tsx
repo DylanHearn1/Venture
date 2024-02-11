@@ -10,7 +10,9 @@ import './App.scss';
 const Index = () => {
   return (
     <>
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
       <main>
         <section id="home">
           <HomePage />
