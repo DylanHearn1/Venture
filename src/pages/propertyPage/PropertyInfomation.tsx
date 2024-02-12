@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { PropertyCardProps } from '../discover/PropertyCard';
+import { PropertyInformation } from '../discover/properties';
 import shared from './../../components/sharedComponents/shared.module.scss';
 import styles from './propertyInfomation.module.scss';
 import { Link } from 'react-router-dom';
@@ -8,26 +8,35 @@ import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
 import Footer from '../footer/footer';
 import { Skeleton } from '@mui/material';
 
-interface PropertyInfomationProps {
+interface PropertyInformationProps {
   homePageLink: string;
 }
 
-const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
+const PropertyInfomation = ({ homePageLink }: PropertyInformationProps) => {
   const { id } = useParams();
-  const [property, setProperty] = useState<PropertyCardProps[]>([]);
-  const [loading, setLoading] = useState('loading');
+  const [property, setProperty] = useState<PropertyInformation[]>([]);
+  const [loading, setLoading] = useState(Boolean);
 
-  const ApiUrl = import.meta.env.VITE_PROPERTY_DATA;
+  const apiUrl = import.meta.env.VITE_PROPERTY_DATA;
 
   useEffect(() => {
-    fetch(`${ApiUrl}/property/${id}`)
-      .then((res) => res.json())
-      .then((data) => setProperty(data))
-      .then(() => setLoading('success'))
-      .catch((error) => {
-        console.log(error), setLoading('fail');
-      });
-  }, [id]);
+    // fetch(`${ApiUrl}/property/${id}`)
+    setLoading(true);
+    getPropertyInfomation();
+  }, []);
+
+  const getPropertyInfomation = async () => {
+    try {
+      const responce = await fetch(`${apiUrl}/property/${id}`);
+      const infomation = await responce.json();
+      setProperty(infomation);
+      console.log(infomation);
+      setLoading(false);
+    } catch (error) {
+      console.error(error, "Coudn't fetch data");
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -36,7 +45,7 @@ const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
           Back
         </Link>
 
-        {loading === 'loading' ? (
+        {loading ? (
           <div className={shared.container100}>
             <div className={styles.skeletonContainer}>
               <div>
@@ -50,17 +59,17 @@ const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
               </div>
             </div>
           </div>
-        ) : loading === 'success' ? (
+        ) : property.length > 0 ? (
           <>
             <div className={shared.container100}>
               {property.map((property, index) => (
                 <div className={styles.bio} key={index}>
                   <div>
                     <p className={shared.heading}>{property.title}</p>
-                    <p className={shared.paragraph}>{property.desc}</p>
+                    <p className={shared.paragraph}>{property.description}</p>
                   </div>
                   <img
-                    src={property.image}
+                    src={property.image_url}
                     alt="image of property"
                     className={styles.image}
                   />
@@ -102,9 +111,11 @@ const PropertyInfomation = ({ homePageLink }: PropertyInfomationProps) => {
             <Footer />
           </>
         ) : (
-          <div className={styles.errorContainer}>
-            <p className={shared.paragraph}>Coudn't find property data</p>
-          </div>
+          <>
+            <div className={styles.errorContainer}>
+              <p className={shared.paragraph}>Coudn't find property data</p>
+            </div>
+          </>
         )}
       </div>
     </>

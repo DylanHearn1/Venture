@@ -4,16 +4,23 @@ import shared from './../../components/sharedComponents/shared.module.scss';
 import PropertyCard from './PropertyCard';
 import { Skeleton } from '@mui/material';
 
-interface Property {
+export interface PropertyInformation {
   title: string;
   id: string;
   description: string;
   image_url: string;
   tags: Array<string>;
+  rooms?: Array<Room>;
+}
+
+interface Room {
+  room: string;
+  desc: string;
+  image: string;
 }
 
 const Properties = () => {
-  const [data, setData] = useState<Property[]>([]);
+  const [data, setData] = useState<PropertyInformation[]>([]);
   const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(false);
 
@@ -60,8 +67,8 @@ const Properties = () => {
                   <PropertyCard
                     id={item.id}
                     title={item.title}
-                    image={item.image_url}
-                    desc={item.description}
+                    image_url={item.image_url}
+                    description={item.description}
                     tags={item.tags}
                   />
                 </div>
